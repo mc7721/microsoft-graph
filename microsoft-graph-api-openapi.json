@@ -1,0 +1,1947 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "",
+        "title": "Microsoft Graph API",
+        "description": "Microsoft Graph exposes multiple APIs from Office 365 and other Microsoft cloud services through a single endpoint: https:\/\/graph.microsoft.com. Microsoft Graph simplifies queries that would otherwise be more complex.",
+        "termsOfService": ""
+    },
+    "servers": [
+        "httpsgraph.microsoft.com\/"
+    ],
+    "paths": [],
+    "components": {
+        "schemas": {
+            "alternativeSecurityId": {
+                "type": "object",
+                "properties": {
+                    "identityProvider": {
+                        "description": "",
+                        "type": "String"
+                    },
+                    "key": {
+                        "description": "",
+                        "type": "Binary"
+                    },
+                    "type": {
+                        "description": "",
+                        "type": "Int32"
+                    }
+                }
+            },
+            "assignedLicense": {
+                "type": "object",
+                "properties": {
+                    "disabledPlans": {
+                        "description": "A collection of the unique identifiers for plans that have been disabled.",
+                        "type": "Guid collection"
+                    },
+                    "skuId": {
+                        "description": "The unique identifier for the SKU.",
+                        "type": "Guid"
+                    }
+                }
+            },
+            "assignedPlan": {
+                "type": "object",
+                "properties": {
+                    "assignedDateTime": {
+                        "description": "The date and time at which the plan was assigned; for example: 2013-01-02T19:32:30Z. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'",
+                        "type": "DateTimeOffset"
+                    },
+                    "capabilityStatus": {
+                        "description": "For example, ???Enabled???.",
+                        "type": "String"
+                    },
+                    "service": {
+                        "description": "The name of the service; for example, ???Exchange???.",
+                        "type": "String"
+                    },
+                    "servicePlanId": {
+                        "description": "A GUID that identifies the service plan.",
+                        "type": "Guid"
+                    }
+                }
+            },
+            "attachment": {
+                "type": "object",
+                "properties": {
+                    "Get attachment": {
+                        "description": "Read the properties and relationships of an attachment, attached to an event, message, or post.",
+                        "type": "attachment"
+                    },
+                    "Add attachment to an event": {
+                        "description": "Add a file, item, or link attachment to an event.",
+                        "type": "attachment"
+                    },
+                    "Add attachment to a message": {
+                        "description": "Add a file, item, or link attachment to a message.",
+                        "type": "attachment"
+                    },
+                    "Add attachment to a post": {
+                        "description": "Add a file, item, or link attachment to a post.",
+                        "type": "attachment"
+                    },
+                    "List attachments of an event": {
+                        "description": "Get a list of attachments for an event.",
+                        "type": "attachment collection"
+                    },
+                    "List attachments of a message": {
+                        "description": "Get a list of attachments for a message.",
+                        "type": "attachment collection"
+                    },
+                    "List attachments of a post": {
+                        "description": "Get a list of attachments for a post.",
+                        "type": "attachment collection"
+                    },
+                    "Delete": {
+                        "description": "Delete an attachment on an event, message, or post.",
+                        "type": "None"
+                    }
+                }
+            },
+            "attendee": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "description": "The attendee's response (none, accepted, declined, etc.) for the event and date-time that the response was sent.",
+                        "type": "ResponseStatus"
+                    },
+                    "type": {
+                        "description": "The attendee type: Required, Optional, Resource.",
+                        "type": "String"
+                    },
+                    "emailAddress": {
+                        "description": "Includes the name and SMTP address of the attendee.",
+                        "type": "emailAddress"
+                    }
+                }
+            },
+            "attendeeAvailability": {
+                "type": "object",
+                "properties": {
+                    "attendee": {
+                        "description": "The type of attendee - whether it's a person or a resource, and whether required or optional if it's a person.",
+                        "type": "AttendeeBase"
+                    },
+                    "availability": {
+                        "description": "The availability status of the attendee. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown.",
+                        "type": "String"
+                    }
+                }
+            },
+            "attendeeBase": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "description": "The attendee type: Required, Optional, Resource.",
+                        "type": "String"
+                    },
+                    "emailAddress": {
+                        "description": "Includes the name and SMTP address of the attendee.",
+                        "type": "emailAddress"
+                    }
+                }
+            },
+            "Audio": {
+                "type": "object",
+                "properties": {
+                    "album": {
+                        "description": "The title of the album for this audio file.",
+                        "type": "string"
+                    },
+                    "albumArtist": {
+                        "description": "The artist named on the album for the audio file.",
+                        "type": "string"
+                    },
+                    "artist": {
+                        "description": "The performing artist for the audio file.",
+                        "type": "string"
+                    },
+                    "bitrate": {
+                        "description": "Bitrate expressed in kbps.",
+                        "type": "string"
+                    },
+                    "composers": {
+                        "description": "The name of the composer of the audio file.",
+                        "type": "string"
+                    },
+                    "copyright": {
+                        "description": "Copyright information for the audio file.",
+                        "type": "string"
+                    },
+                    "disc": {
+                        "description": "The number of the disc this audio file came from.",
+                        "type": "number"
+                    },
+                    "discCount": {
+                        "description": "The total number of discs in this album.",
+                        "type": "number"
+                    },
+                    "duration": {
+                        "description": "Duration of the audio file, expressed in milliseconds",
+                        "type": "number"
+                    },
+                    "genre": {
+                        "description": "The genre of this audio file.",
+                        "type": "string"
+                    },
+                    "hasDrm": {
+                        "description": "Indicates if the file is protected with digital rights management.",
+                        "type": "boolean"
+                    },
+                    "isVariableBitrate": {
+                        "description": "Indicates if the file is encoded with a variable bitrate.",
+                        "type": "boolean"
+                    },
+                    "title": {
+                        "description": "The title of the audio file.",
+                        "type": "string"
+                    },
+                    "track": {
+                        "description": "The number of the track on the original disc for this audio file.",
+                        "type": "number"
+                    },
+                    "trackCount": {
+                        "description": "The total number of tracks on the original disc for this audio file.",
+                        "type": "number"
+                    },
+                    "year": {
+                        "description": "The year the audio file was recorded.",
+                        "type": "number"
+                    }
+                }
+            },
+            "automaticRepliesSetting": {
+                "type": "object",
+                "properties": {
+                    "externalAudience": {
+                        "description": "The set of audience external to the signed-in user's organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. Possible values are: none, contactsOnly, all.",
+                        "type": "String"
+                    },
+                    "externalReplyMessage": {
+                        "description": "The automatic reply to send to the specified external audience, if Status is AlwaysEnabled or Scheduled.",
+                        "type": "string"
+                    },
+                    "internalReplyMessage": {
+                        "description": "The automatic reply to send to the audience internal to the signed-in user's organization, if Status is AlwaysEnabled or Scheduled.",
+                        "type": "string"
+                    },
+                    "scheduledEndDateTime": {
+                        "description": "The date and time that automatic replies are set to end, if Status is set to Scheduled.",
+                        "type": "dateTimeTimeZone"
+                    },
+                    "scheduledStartDateTime": {
+                        "description": "The date and time that automatic replies are set to begin, if Status is set to Scheduled.",
+                        "type": "dateTimeTimeZone"
+                    },
+                    "status": {
+                        "description": "Configurations status for automatic replies. Possible values are: disabled, alwaysEnabled, scheduled.",
+                        "type": "String"
+                    }
+                }
+            },
+            "calendar": {
+                "type": "object",
+                "properties": {
+                    "List calendars": {
+                        "description": "Get all the user's calendars, or the calendars in the default or other specific calendar group.",
+                        "type": "calendar collection"
+                    },
+                    "Create calendar": {
+                        "description": "Create a new calendar in the default calendar group or specified calendar group.",
+                        "type": "calendar"
+                    },
+                    "Get calendar": {
+                        "description": "Read properties and relationships of calendar object.",
+                        "type": "calendar"
+                    },
+                    "Update": {
+                        "description": "Update calendar object.",
+                        "type": "calendar"
+                    },
+                    "Delete": {
+                        "description": "Delete an attachment on an event, message, or post.",
+                        "type": "None"
+                    },
+                    "List calendarView": {
+                        "description": "Get the occurrences, exceptions, and single instances of events in a calendar view defined by a time range, from the user's primary calendar (..\/me\/calendarview) or from a specified calendar.",
+                        "type": "Event collection"
+                    },
+                    "List events": {
+                        "description": "Retrieve a list of events in a calendar.  The list contains single instance meetings and series masters.",
+                        "type": "Event collection"
+                    },
+                    "Create Event": {
+                        "description": "Create a new Event in the default or specified calendar.",
+                        "type": "Event"
+                    },
+                    "Create single": {
+                        "description": "Create one or more single-value extended properties in a new or existing calendar.",
+                        "type": "calendar"
+                    },
+                    "Get calendar with single": {
+                        "description": "Get calendars that contain a single-value extended property by using $expand or $filter.",
+                        "type": "calendar"
+                    },
+                    "Create multi": {
+                        "description": "Create one or more multi-value extended properties in a new or existing calendar.",
+                        "type": "calendar"
+                    },
+                    "Get calendar with multi": {
+                        "description": "Get a calendar that contains a multi-value extended property by using $expand.",
+                        "type": "calendar"
+                    }
+                }
+            },
+            "calendarGroup": {
+                "type": "object",
+                "properties": {
+                    "List calendar groups": {
+                        "description": "Get the user's calendar groups.",
+                        "type": "Calendar collection"
+                    },
+                    "Create calendar group": {
+                        "description": "Create a new calendar group.",
+                        "type": "Calendar"
+                    },
+                    "Get calendar group": {
+                        "description": "Read properties and relationships of a calendar group object.",
+                        "type": "calendarGroup"
+                    },
+                    "Update": {
+                        "description": "Update calendarGroup object.",
+                        "type": "calendarGroup"
+                    },
+                    "Delete": {
+                        "description": "Delete an attachment on an event, message, or post.",
+                        "type": "None"
+                    },
+                    "List calendars": {
+                        "description": "Get all the user's calendars, or the calendars in the default or other specific calendar group.",
+                        "type": "calendar collection"
+                    },
+                    "Create calendar": {
+                        "description": "Create a new calendar in the default calendar group or specified calendar group.",
+                        "type": "calendar"
+                    }
+                }
+            },
+            "Chart": {
+                "type": "object",
+                "properties": {
+                    "Get Chart": {
+                        "description": "Read properties and relationships of chart object.",
+                        "type": "Chart"
+                    },
+                    "Create ChartSeries": {
+                        "description": "Create a new ChartSeries by posting to the series collection.",
+                        "type": "ChartSeries"
+                    },
+                    "List series": {
+                        "description": "Get a ChartSeries object collection.",
+                        "type": "ChartSeries collection"
+                    },
+                    "Update": {
+                        "description": "Update Chart object.",
+                        "type": "Chart"
+                    },
+                    "Image": {
+                        "description": "Renders the chart as a base64-encoded image by scaling the chart to fit the specified dimensions.",
+                        "type": "Image base64 encoded string"
+                    },
+                    "Delete": {
+                        "description": "Delete an attachment on an event, message, or post.",
+                        "type": "None"
+                    },
+                    "Setdata": {
+                        "description": "Resets the source data for the chart.",
+                        "type": "None"
+                    },
+                    "Setposition": {
+                        "description": "Positions the chart relative to cells on the worksheet.",
+                        "type": "None"
+                    },
+                    "List": {
+                        "description": "Get chart object collection.",
+                        "type": "Chart collection"
+                    },
+                    "Itemat": {
+                        "description": "Gets a chart based on its position in the collection.",
+                        "type": "Chart"
+                    },
+                    "Add": {
+                        "description": "Creates a new chart.",
+                        "type": "Chart"
+                    }
+                }
+            },
+            "ChartAreaFormat": {
+                "type": "object",
+                "properties": {
+                    "fill": {
+                        "description": "Represents the fill format of an object, which includes background formatting information. Read-only.",
+                        "type": "ChartFill"
+                    },
+                    "font": {
+                        "description": "Represents the font attributes (font name, font size, color, etc.) for the current object. Read-only.",
+                        "type": "ChartFont"
+                    }
+                }
+            },
+            "ChartAxes": {
+                "type": "object",
+                "properties": {
+                    "categoryAxis": {
+                        "description": "Represents the category axis in a chart. Read-only.",
+                        "type": "ChartAxis"
+                    },
+                    "seriesAxis": {
+                        "description": "Represents the series axis of a 3-dimensional chart. Read-only.",
+                        "type": "ChartAxis"
+                    },
+                    "valueAxis": {
+                        "description": "Represents the value axis in an axis. Read-only.",
+                        "type": "ChartAxis"
+                    }
+                }
+            },
+            "ChartAxis": {
+                "type": "object",
+                "properties": {
+                    "Get ChartAxis": {
+                        "description": "Read properties and relationships of chartAxis object.",
+                        "type": "ChartAxis"
+                    },
+                    "Update": {
+                        "description": "Update ChartAxis object.",
+                        "type": "ChartAxis"
+                    }
+                }
+            },
+            "ChartAxisFormat": {
+                "type": "object",
+                "properties": {
+                    "font": {
+                        "description": "Represents the font attributes (font name, font size, color, etc.) for the current object. Read-only.",
+                        "type": "ChartFont"
+                    },
+                    "line": {
+                        "description": "Represents chart line formatting. Read-only.",
+                        "type": "ChartLineFormat"
+                    }
+                }
+            },
+            "ChartAxisTitle": {
+                "type": "object",
+                "properties": {
+                    "Get ChartAxisTitle": {
+                        "description": "Read properties and relationships of chartAxisTitle object.",
+                        "type": "ChartAxisTitle"
+                    },
+                    "Update": {
+                        "description": "Update ChartAxisTitle object.",
+                        "type": "ChartAxisTitle"
+                    }
+                }
+            },
+            "ChartAxisTitleFormat": {
+                "type": "object",
+                "properties": {
+                    "font": {
+                        "description": "Represents the font attributes (font name, font size, color, etc.) for the current object. Read-only.",
+                        "type": "ChartFont"
+                    }
+                }
+            },
+            "ChartDataLabelFormat": {
+                "type": "object",
+                "properties": {
+                    "fill": {
+                        "description": "Represents the fill format of an object, which includes background formatting information. Read-only.",
+                        "type": "ChartFill"
+                    },
+                    "font": {
+                        "description": "Represents the font attributes (font name, font size, color, etc.) for the current object. Read-only.",
+                        "type": "ChartFont"
+                    }
+                }
+            },
+            "ChartDataLabels": {
+                "type": "object",
+                "properties": {
+                    "Get ChartDataLabels": {
+                        "description": "Read properties and relationships of chartDataLabels object.",
+                        "type": "ChartDataLabels"
+                    },
+                    "Update": {
+                        "description": "Update ChartDataLabels object.",
+                        "type": "ChartDataLabels"
+                    }
+                }
+            },
+            "ChartFill": {
+                "type": "object",
+                "properties": {
+                    "Clear": {
+                        "description": "Clear the fill color of a chart element.",
+                        "type": "None"
+                    },
+                    "Setsolidcolor": {
+                        "description": "Sets the fill formatting of a chart element to a uniform color.",
+                        "type": "None"
+                    }
+                }
+            },
+            "ChartFont": {
+                "type": "object",
+                "properties": {
+                    "Get ChartFont": {
+                        "description": "Read properties and relationships of chartFont object.",
+                        "type": "ChartFont"
+                    },
+                    "Update": {
+                        "description": "Update ChartFont object.",
+                        "type": "ChartFont"
+                    }
+                }
+            },
+            "ChartGridlines": {
+                "type": "object",
+                "properties": {
+                    "Get ChartGridlines": {
+                        "description": "Read properties and relationships of chartGridlines object.",
+                        "type": "ChartGridlines"
+                    },
+                    "Update": {
+                        "description": "Update ChartGridlines object.",
+                        "type": "ChartGridlines"
+                    }
+                }
+            },
+            "ChartGridlinesFormat": {
+                "type": "object",
+                "properties": {
+                    "line": {
+                        "description": "Represents chart line formatting. Read-only.",
+                        "type": "ChartLineFormat"
+                    }
+                }
+            },
+            "ChartLegend": {
+                "type": "object",
+                "properties": {
+                    "Get ChartLegend": {
+                        "description": "Read properties and relationships of chartLegend object.",
+                        "type": "ChartLegend"
+                    },
+                    "Update": {
+                        "description": "Update ChartLegend object.",
+                        "type": "ChartLegend"
+                    }
+                }
+            },
+            "ChartLegendFormat": {
+                "type": "object",
+                "properties": {
+                    "fill": {
+                        "description": "Represents the fill format of an object, which includes background formatting information. Read-only.",
+                        "type": "ChartFill"
+                    },
+                    "font": {
+                        "description": "Represents the font attributes (font name, font size, color, etc.) for the current object. Read-only.",
+                        "type": "ChartFont"
+                    }
+                }
+            },
+            "ChartLineFormat": {
+                "type": "object",
+                "properties": {
+                    "Get ChartLineFormat": {
+                        "description": "Read properties and relationships of chartLineFormat object.",
+                        "type": "ChartLineFormat"
+                    },
+                    "Update": {
+                        "description": "Update ChartLineFormat object.",
+                        "type": "ChartLineFormat"
+                    },
+                    "Clear": {
+                        "description": "Clear the fill color of a chart element.",
+                        "type": "None"
+                    }
+                }
+            },
+            "ChartPoint": {
+                "type": "object",
+                "properties": {
+                    "Get ChartPoint": {
+                        "description": "Read properties and relationships of chartPoint object.",
+                        "type": "ChartPoint"
+                    },
+                    "List": {
+                        "description": "Get chartPoint object collection.",
+                        "type": "ChartPoint collection"
+                    },
+                    "Itemat": {
+                        "description": "Retrieve a point based on its position within the series.",
+                        "type": "ChartPoint"
+                    }
+                }
+            },
+            "ChartPointFormat": {
+                "type": "object",
+                "properties": {
+                    "fill": {
+                        "description": "Represents the fill format of an object, which includes background formatting information. Read-only.",
+                        "type": "ChartFill"
+                    }
+                }
+            },
+            "ChartSeries": {
+                "type": "object",
+                "properties": {
+                    "Get ChartSeries": {
+                        "description": "Read properties and relationships of chartSeries object.",
+                        "type": "ChartSeries"
+                    },
+                    "Create ChartPoints": {
+                        "description": "Create a new ChartPoints by posting to the points collection.",
+                        "type": "ChartPoints"
+                    },
+                    "List points": {
+                        "description": "Get a ChartPoints object collection.",
+                        "type": "ChartPoints collection"
+                    },
+                    "Update": {
+                        "description": "Update ChartSeries object.",
+                        "type": "ChartSeries"
+                    },
+                    "List": {
+                        "description": "Get chartSeries object collection.",
+                        "type": "ChartSeries collection"
+                    },
+                    "Itemat": {
+                        "description": "Retrieves a series based on its position in the collection",
+                        "type": "ChartSeries"
+                    }
+                }
+            },
+            "ChartSeriesFormat": {
+                "type": "object",
+                "properties": {
+                    "fill": {
+                        "description": "Represents the fill format of an object, which includes background formatting information. Read-only.",
+                        "type": "ChartFill"
+                    },
+                    "line": {
+                        "description": "Represents chart line formatting. Read-only.",
+                        "type": "ChartLineFormat"
+                    }
+                }
+            },
+            "ChartTitle": {
+                "type": "object",
+                "properties": {
+                    "Get ChartTitle": {
+                        "description": "Read properties and relationships of chartTitle object.",
+                        "type": "ChartTitle"
+                    },
+                    "Update": {
+                        "description": "Update ChartTitle object.",
+                        "type": "ChartTitle"
+                    }
+                }
+            },
+            "ChartTitleFormat": {
+                "type": "object",
+                "properties": {
+                    "fill": {
+                        "description": "Represents the fill format of an object, which includes background formatting information. Read-only.",
+                        "type": "ChartFill"
+                    },
+                    "font": {
+                        "description": "Represents the font attributes (font name, font size, color, etc.) for the current object. Read-only.",
+                        "type": "ChartFont"
+                    }
+                }
+            },
+            "chunkedUploadSessionDescriptor": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "",
+                        "type": "String"
+                    }
+                }
+            },
+            "contact": {
+                "type": "object",
+                "properties": {
+                    "Get contact": {
+                        "description": "Read properties and relationships of contact object.",
+                        "type": "contact"
+                    },
+                    "Create": {
+                        "description": "Add a contact to the root Contacts folder or to the contacts endpoint of another contact folder.",
+                        "type": "contact"
+                    },
+                    "Update": {
+                        "description": "Update contact object.",
+                        "type": "contact"
+                    },
+                    "Delete": {
+                        "description": "Delete an attachment on an event, message, or post.",
+                        "type": "None"
+                    },
+                    "Create open extension": {
+                        "description": "Create an open extension and add custom properties in a new or existing instance of a resource.",
+                        "type": "openTypeExtension"
+                    },
+                    "Get open extension": {
+                        "description": "Get an open extension object or objects identified by name or fully qualified name.",
+                        "type": "openTypeExtension collection"
+                    },
+                    "Create single": {
+                        "description": "Create one or more single-value extended properties in a new or existing contact.",
+                        "type": "contact"
+                    },
+                    "Get contact with single": {
+                        "description": "Get contacts that contain a single-value extended property by using $expand or $filter.",
+                        "type": "contact"
+                    },
+                    "Create multi": {
+                        "description": "Create one or more multi-value extended properties in a new or existing contact.",
+                        "type": "contact"
+                    },
+                    "Get contact with multi": {
+                        "description": "Get a contact that contains a multi-value extended property by using $expand.",
+                        "type": "contact"
+                    }
+                }
+            },
+            "contactFolder": {
+                "type": "object",
+                "properties": {
+                    "Get contactFolder": {
+                        "description": "Get a contact folder by using the contact folder ID.",
+                        "type": "contactFolder"
+                    },
+                    "Update": {
+                        "description": "Update contactFolder object.",
+                        "type": "contactFolder"
+                    },
+                    "Delete": {
+                        "description": "Delete an attachment on an event, message, or post.",
+                        "type": "None"
+                    },
+                    "List childFolders": {
+                        "description": "Get a collection of child folders under the specified contact folder.",
+                        "type": "ContactFolder collection"
+                    },
+                    "Create child contactFolder": {
+                        "description": "Create a new contactFolder as a child of a specified folder.",
+                        "type": "ContactFolder"
+                    },
+                    "List contacts in folder": {
+                        "description": "Get a contact collection from the default Contacts folder of the signed-in user (...\/me\/contacts), or from the specified contact folder.",
+                        "type": "Contact collection"
+                    },
+                    "Create contact in folder": {
+                        "description": "Add a contact to the root Contacts folder or to the contacts endpoint of another contact folder.",
+                        "type": "Contact"
+                    },
+                    "Create single": {
+                        "description": "Create one or more single-value extended properties in a new or existing contactFolder.",
+                        "type": "contactFolder"
+                    },
+                    "Get contactFolder with single": {
+                        "description": "Get contactFolders that contain a single-value extended property by using $expand or $filter.",
+                        "type": "contactFolder"
+                    },
+                    "Create multi": {
+                        "description": "Create one or more multi-value extended properties in a new or existing contactFolder.",
+                        "type": "contactFolder"
+                    },
+                    "Get contactFolder with multi": {
+                        "description": "Get a contactFolder that contains a multi-value extended property by using $expand.",
+                        "type": "contactFolder"
+                    }
+                }
+            },
+            "conversation": {
+                "type": "object",
+                "properties": {
+                    "List conversations": {
+                        "description": "Get the list of conversations in this group.",
+                        "type": "conversation collection"
+                    },
+                    "Create": {
+                        "description": "Create a new conversation by including a thread and a post.",
+                        "type": "conversation"
+                    },
+                    "Get conversation": {
+                        "description": "Read properties and relationships of conversation object.",
+                        "type": "conversation"
+                    },
+                    "Delete": {
+                        "description": "Delete an attachment on an event, message, or post.",
+                        "type": "None"
+                    },
+                    "List conversation threads": {
+                        "description": "Get all the threads in a group conversation.",
+                        "type": "conversationThread collection"
+                    },
+                    "Create conversation thread": {
+                        "description": "Create a thread in the specified conversation.",
+                        "type": "conversationThread collection"
+                    }
+                }
+            },
+            "conversationThread": {
+                "type": "object",
+                "properties": {
+                    "List threads": {
+                        "description": "Get all the threads of a group.",
+                        "type": "conversationThread collection"
+                    },
+                    "Create thread": {
+                        "description": "Start a new conversation by first creating a thread. A new conversation, conversation thread, and post are created in the group.",
+                        "type": "conversationThread"
+                    },
+                    "Get conversationThread": {
+                        "description": "Get a specific thread that belongs to a group.",
+                        "type": "conversationThread"
+                    },
+                    "Update": {
+                        "description": "Update conversationThread object.",
+                        "type": "conversationThread"
+                    },
+                    "Delete": {
+                        "description": "Delete an attachment on an event, message, or post.",
+                        "type": "None"
+                    },
+                    "Reply": {
+                        "description": "Reply to this thread by creating a new Post entity.",
+                        "type": "None"
+                    },
+                    "List Posts": {
+                        "description": "Get the posts of the specified thread.",
+                        "type": "post collection"
+                    }
+                }
+            },
+            "dateTimeTimeZone": {
+                "type": "object",
+                "properties": {
+                    "DateTime": {
+                        "description": "A single point of time in a combined date and time representation (&lt;date&gt;T&lt;time&gt;).",
+                        "type": "String"
+                    },
+                    "TimeZone": {
+                        "description": "One of the following time zone names.",
+                        "type": "String"
+                    }
+                }
+            },
+            "Deleted": {
+                "type": "object",
+                "properties": {
+                    "state": {
+                        "description": "Represents the state of the deleted item.",
+                        "type": "String"
+                    }
+                }
+            },
+            "device": {
+                "type": "object",
+                "properties": {
+                    "Create device": {
+                        "description": "Create a new registered device in the directory.",
+                        "type": "device"
+                    },
+                    "Get device": {
+                        "description": "Read properties and relationships of a device object.",
+                        "type": "device"
+                    },
+                    "List devices": {
+                        "description": "Retrieve a list of devices registered in the directory.",
+                        "type": "device collection"
+                    },
+                    "Update device": {
+                        "description": "Update the properties of a device object.",
+                        "type": "device"
+                    },
+                    "Delete device": {
+                        "description": "Delete a device object.",
+                        "type": "None"
+                    },
+                    "Create registeredOwner": {
+                        "description": "Add a user as a new owner of the device by posting to the registeredOwners navigation property.",
+                        "type": "directoryObject"
+                    },
+                    "List registeredOwners": {
+                        "description": "Get the users that are registered owners of the device from the registeredOwners navigation property.",
+                        "type": "directoryObject collection"
+                    },
+                    "Create registeredUser": {
+                        "description": "Add a registered user for the device by posting to the registeredUsers navigation property.",
+                        "type": "directoryObject"
+                    },
+                    "List registeredUsers": {
+                        "description": "Get the registered users of the device from the registeredUsers navigation property.",
+                        "type": "directoryObject collection"
+                    }
+                }
+            },
+            "directoryObject": {
+                "type": "object",
+                "properties": {
+                    "Get directoryObject": {
+                        "description": "Read the properties  of a directory object.",
+                        "type": "directoryObject"
+                    },
+                    "Delete directoryObject": {
+                        "description": "Delete a directory object.",
+                        "type": "None"
+                    },
+                    "checkMemberGroups": {
+                        "description": "Check for membership in a list of groups. The check is transitive.",
+                        "type": "String collection"
+                    },
+                    "getMemberGroups": {
+                        "description": "Return all the groups that the user, group, or directory object is a member of. The check is transitive.",
+                        "type": "String collection"
+                    },
+                    "getMemberObjects": {
+                        "description": "Return all of the groups and directory roles that the user, group, or directory object is a member of. The check is transitive.",
+                        "type": "String collection"
+                    }
+                }
+            },
+            "directoryRole": {
+                "type": "object",
+                "properties": {
+                    "Get directoryRole": {
+                        "description": "Read properties and relationships of directoryRole object.",
+                        "type": "directoryRole"
+                    },
+                    "Create member": {
+                        "description": "Add a user to the directory role by posting to the members navigation property.",
+                        "type": "directoryObject"
+                    },
+                    "List members": {
+                        "description": "Get the users that are members of the directory role from the members navigation property.",
+                        "type": "directoryObject collection"
+                    },
+                    "Activate directoryRole": {
+                        "description": "Activate a directory role.",
+                        "type": "directoryRole"
+                    }
+                }
+            },
+            "directoryRoleTemplate": {
+                "type": "object",
+                "properties": {
+                    "Get directoryRoleTemplate": {
+                        "description": "Read properties and relationships of directoryRoleTemplate object.",
+                        "type": "directoryRoleTemplate"
+                    },
+                    "List directoryRoleTemplate": {
+                        "description": "Retrieve a list of directoryRoleTemplate objects.",
+                        "type": "directoryRoleTemplate collection"
+                    }
+                }
+            },
+            "Drive": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "The unique identifier of the drive. Read-only.",
+                        "type": "String"
+                    },
+                    "driveType": {
+                        "description": "Describes the type of drive represented by this resource. OneDrive personal drives will return personal. OneDrive for Business will return business. SharePoint document libraries will return documentLibrary. Read-only.",
+                        "type": "String"
+                    },
+                    "owner": {
+                        "description": "Optional. The user account that owns the drive.",
+                        "type": "identitySet"
+                    },
+                    "quota": {
+                        "description": "Optional. Information about the drive's storage space quota.",
+                        "type": "quota"
+                    }
+                }
+            },
+            "DriveItem": {
+                "type": "object",
+                "properties": {
+                    "audio": {
+                        "description": "Audio metadata, if the item is an audio file. Read-only.",
+                        "type": "audio"
+                    },
+                    "content": {
+                        "description": "The content stream, if the item represents a file.",
+                        "type": "Stream"
+                    },
+                    "createdBy": {
+                        "description": "Identity of the user, device, and application which created the item. Read-only.",
+                        "type": "identitySet"
+                    },
+                    "createdDateTime": {
+                        "description": "Date and time of item creation. Read-only.",
+                        "type": "DateTimeOffset"
+                    },
+                    "cTag": {
+                        "description": "An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.",
+                        "type": "String"
+                    },
+                    "deleted": {
+                        "description": "Information about the deleted state of the item. Read-only.",
+                        "type": "deleted"
+                    },
+                    "eTag": {
+                        "description": "eTag for the entire item (metadata + content). Read-only.",
+                        "type": "String"
+                    },
+                    "file": {
+                        "description": "File metadata, if the item is a file. Read-only.",
+                        "type": "file"
+                    },
+                    "fileSystemInfo": {
+                        "description": "File system information on client. Read-write.",
+                        "type": "fileSystemInfo"
+                    },
+                    "folder": {
+                        "description": "Folder metadata, if the item is a folder. Read-only.",
+                        "type": "folder"
+                    },
+                    "id": {
+                        "description": "The unique identifier of the drive. Read-only.",
+                        "type": "String"
+                    },
+                    "image": {
+                        "description": "Image metadata, if the item is an image. Read-only.",
+                        "type": "image"
+                    },
+                    "lastModifiedBy": {
+                        "description": "Identity of the user, device, and application which last modified the item. Read-only.",
+                        "type": "identitySet"
+                    },
+                    "lastModifiedDateTime": {
+                        "description": "Date and time the item was last modified. Read-only.",
+                        "type": "DateTimeOffset"
+                    },
+                    "location": {
+                        "description": "Location metadata, if the item has location data. Read-only.",
+                        "type": "geoCoordinates"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "String"
+                    },
+                    "package": {
+                        "description": "If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only.",
+                        "type": "package"
+                    },
+                    "parentReference": {
+                        "description": "Parent information, if the item has a parent. Read-write.",
+                        "type": "itemReference"
+                    },
+                    "photo": {
+                        "description": "Photo metadata, if the item is a photo. Read-only.",
+                        "type": "photo"
+                    },
+                    "remoteItem": {
+                        "description": "Remote item data, if the item is shared from a drive other than the one being accessed. Read-only.",
+                        "type": "remoteItem"
+                    },
+                    "searchResult": {
+                        "description": "Search metadata, if the item is from a search result. Read-only.",
+                        "type": "searchResult"
+                    },
+                    "shared": {
+                        "description": "Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only.",
+                        "type": "shared"
+                    },
+                    "size": {
+                        "description": "Size of the item in bytes. Read-only.",
+                        "type": "Int64"
+                    },
+                    "specialFolder": {
+                        "description": "If the current item is also available as a special folder, this facet is returned. Read-only.",
+                        "type": "specialFolder"
+                    },
+                    "video": {
+                        "description": "Video metadata, if the item is a video. Read-only.",
+                        "type": "video"
+                    },
+                    "webUrl": {
+                        "description": "URL that displays the resource in the browser. Read-only.",
+                        "type": "String"
+                    }
+                }
+            },
+            "DriveRecipient": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "description": "The email address for the recipient, if the recipient has an associated email address.",
+                        "type": "String"
+                    },
+                    "alias": {
+                        "description": "The alias of the domain object, for cases where an email address is unavailable (e.g. security groups).",
+                        "type": "String"
+                    },
+                    "objectId": {
+                        "description": "The unique identifier for the recipient in the directory.",
+                        "type": "String"
+                    }
+                }
+            },
+            "emailAddress": {
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "description": "The email address of the person or entity.",
+                        "type": "String"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "String"
+                    }
+                }
+            },
+            "entity": {
+                "type": "object",
+                "properties": {
+                    "Get entity": {
+                        "description": "Read properties and relationships of entity object.",
+                        "type": "entity"
+                    },
+                    "Delete": {
+                        "description": "Delete an attachment on an event, message, or post.",
+                        "type": "None"
+                    }
+                }
+            },
+            "event": {
+                "type": "object",
+                "properties": {
+                    "List events": {
+                        "description": "Retrieve a list of events in a calendar.  The list contains single instance meetings and series masters.",
+                        "type": "Event collection"
+                    },
+                    "Create Event": {
+                        "description": "Create a new Event in the default or specified calendar.",
+                        "type": "Event"
+                    },
+                    "Get event": {
+                        "description": "Read properties and relationships of event object.",
+                        "type": "event"
+                    },
+                    "Update": {
+                        "description": "Update event object.",
+                        "type": "event"
+                    },
+                    "Delete": {
+                        "description": "Delete an attachment on an event, message, or post.",
+                        "type": "None"
+                    },
+                    "accept": {
+                        "description": "Accept the specified event.",
+                        "type": "None"
+                    },
+                    "tentativelyAccept": {
+                        "description": "Tentatively accept the specified event.",
+                        "type": "None"
+                    },
+                    "decline": {
+                        "description": "Decline invitation to the specified event.",
+                        "type": "None"
+                    },
+                    "dismissReminder": {
+                        "description": "Dismiss the reminder for the specified event.",
+                        "type": "None"
+                    },
+                    "snoozeReminder": {
+                        "description": "Snooze the reminder for the specified event.",
+                        "type": "None"
+                    },
+                    "List instances": {
+                        "description": "Get the instances (occurrences) of an event for a specified time range. If the event is a SeriesMaster type, this returns the occurrences and exceptions of the event in the specified time range.",
+                        "type": "event collection"
+                    },
+                    "Attachments": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "List attachments": {
+                        "description": "Get all attachments on an event.",
+                        "type": "attachment collection"
+                    },
+                    "Add attachment": {
+                        "description": "Add a new attachment to an event by posting to the attachments collection.",
+                        "type": "attachment"
+                    },
+                    "Open extensions": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "Create open extension": {
+                        "description": "Create an open extension and add custom properties in a new or existing instance of a resource.",
+                        "type": "openTypeExtension"
+                    },
+                    "Get open extension": {
+                        "description": "Get an open extension object or objects identified by name or fully qualified name.",
+                        "type": "openTypeExtension collection"
+                    },
+                    "Extended properties": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "Create single": {
+                        "description": "Create one or more single-value extended properties in a new or existing event.",
+                        "type": "event"
+                    },
+                    "Get event with single": {
+                        "description": "Get events that contain a single-value extended property by using $expand or $filter.",
+                        "type": "event"
+                    },
+                    "Create multi": {
+                        "description": "Create one or more multi-value extended properties in a new or existing event.",
+                        "type": "event"
+                    },
+                    "Get event with multi": {
+                        "description": "Get an event that contains a multi-value extended property by using $expand.",
+                        "type": "event"
+                    }
+                }
+            },
+            "eventMessage": {
+                "type": "object",
+                "properties": {
+                    "Get eventMessage": {
+                        "description": "Read properties and relationships of eventMessage object.",
+                        "type": "eventMessage"
+                    },
+                    "Update": {
+                        "description": "Update eventMessage object.",
+                        "type": "eventMessage"
+                    },
+                    "Delete": {
+                        "description": "Delete an attachment on an event, message, or post.",
+                        "type": "None"
+                    },
+                    "copy": {
+                        "description": "Copy a message to a folder.",
+                        "type": "Message"
+                    },
+                    "createForward": {
+                        "description": "Create a draft of the Forward message. You can then update or send the draft.",
+                        "type": "Message"
+                    },
+                    "createReply": {
+                        "description": "Create a draft of the Reply message. You can then update or send the draft.",
+                        "type": "Message"
+                    },
+                    "createReplyAll": {
+                        "description": "Create a draft of the Reply All message. You can then update or send the draft.",
+                        "type": "Message"
+                    },
+                    "forward": {
+                        "description": "Forward a message. The message is then saved in the Sent Items folder.",
+                        "type": "None"
+                    },
+                    "move": {
+                        "description": "Move a message to a folder. This creates a new copy of the message in the destination folder.",
+                        "type": "Message"
+                    },
+                    "Reply": {
+                        "description": "Reply to this thread by creating a new Post entity.",
+                        "type": "None"
+                    },
+                    "replyAll": {
+                        "description": "Reply to all recipients of a message. The message is then saved in the Sent Items folder.",
+                        "type": "None"
+                    },
+                    "send": {
+                        "description": "Sends a previously created message draft. The message is then saved in the Sent Items folder.",
+                        "type": "None"
+                    },
+                    "Attachments": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "List attachments": {
+                        "description": "Get all attachments on an event.",
+                        "type": "attachment collection"
+                    },
+                    "Add attachment": {
+                        "description": "Add a new attachment to an event by posting to the attachments collection.",
+                        "type": "attachment"
+                    },
+                    "Open extensions": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "Create open extension": {
+                        "description": "Create an open extension and add custom properties in a new or existing instance of a resource.",
+                        "type": "openTypeExtension"
+                    },
+                    "Get open extension": {
+                        "description": "Get an open extension object or objects identified by name or fully qualified name.",
+                        "type": "openTypeExtension collection"
+                    },
+                    "Extended properties": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "Create single": {
+                        "description": "Create one or more single-value extended properties in a new or existing eventMessage.",
+                        "type": "eventMessage"
+                    },
+                    "Get eventMessage with single": {
+                        "description": "Get eventMessages that contain a single-value extended property by using $expand or $filter.",
+                        "type": "eventMessage"
+                    },
+                    "Create multi": {
+                        "description": "Create one or more multi-value extended properties in a new or existing eventMessage.",
+                        "type": "eventMessage"
+                    },
+                    "Get eventMessage with multi": {
+                        "description": "Get an eventMessage that contains a multi-value extended property by using $expand.",
+                        "type": "eventMessage"
+                    }
+                }
+            },
+            "Working with Excel in Microsoft Graph": {
+                "type": "object"
+            },
+            "Outlook extended properties overview": {
+                "type": "object",
+                "properties": {
+                    "\"{type} {guid} Name {name}\"": {
+                        "description": "Identifies a property by the namespace (the GUID) it belongs to, and a name.",
+                        "type": "\"String {8ECCC264-6880-4EBE-992F-8888D2EEAA1D"
+                    },
+                    "\"{type} {guid} Id {id}\"": {
+                        "description": "Identifies a property by the namespace (the GUID) it belongs to, and an identifier.",
+                        "type": "\"Integer {8ECCC264-6880-4EBE-992F-8888D2EEAA1"
+                    }
+                }
+            },
+            "extension": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "The unique identifier of the drive. Read-only.",
+                        "type": "String"
+                    }
+                }
+            },
+            "File": {
+                "type": "object",
+                "properties": {
+                    "hashes": {
+                        "description": "Hashes of the file's binary content, if available. Read-only.",
+                        "type": "HashesType"
+                    },
+                    "mimeType": {
+                        "description": "The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only.",
+                        "type": "string"
+                    }
+                }
+            },
+            "fileAttachment": {
+                "type": "object",
+                "properties": {
+                    "Get": {
+                        "description": "Read properties and relationships of fileAttachment object.",
+                        "type": "fileAttachment"
+                    },
+                    "Delete": {
+                        "description": "Delete an attachment on an event, message, or post.",
+                        "type": "None"
+                    }
+                }
+            },
+            "FileSystemInfo": {
+                "type": "object",
+                "properties": {
+                    "createdDateTime": {
+                        "description": "Date and time of item creation. Read-only.",
+                        "type": "DateTimeOffset"
+                    },
+                    "lastModifiedDateTime": {
+                        "description": "Date and time the item was last modified. Read-only.",
+                        "type": "DateTimeOffset"
+                    }
+                }
+            },
+            "Filter": {
+                "type": "object",
+                "properties": {
+                    "Apply": {
+                        "description": "Apply the given filter criteria on the given column.",
+                        "type": "None"
+                    },
+                    "Clear": {
+                        "description": "Clear the fill color of a chart element.",
+                        "type": "None"
+                    }
+                }
+            },
+            "FilterCriteria": {
+                "type": "object"
+            },
+            "FilterDatetime": {
+                "type": "object",
+                "properties": {
+                    "date": {
+                        "description": "The date in ISO8601 format used to filter data.",
+                        "type": "string"
+                    },
+                    "specificity": {
+                        "description": "How specific the date should be used to keep data. For example, if the date is 2005-04-02 and the specifity is set to \"month\", the filter operation will keep all rows with a date in the month of april 2009. Possible values are: Year, Monday, Day, Hour, Minute, Second.",
+                        "type": "string"
+                    }
+                }
+            },
+            "Folder": {
+                "type": "object",
+                "properties": {
+                    "childCount": {
+                        "description": "Number of children contained immediately within this container.",
+                        "type": "Int64"
+                    }
+                }
+            },
+            "FormatProtection": {
+                "type": "object",
+                "properties": {
+                    "Get FormatProtection": {
+                        "description": "Read properties and relationships of formatProtection object.",
+                        "type": "FormatProtection"
+                    },
+                    "Update": {
+                        "description": "Update FormatProtection object.",
+                        "type": "FormatProtection"
+                    }
+                }
+            },
+            "GeoCoordinates": {
+                "type": "object",
+                "properties": {
+                    "altitude": {
+                        "description": "Optional. The altitude (height), in feet,  above sea level for the item. Read-only.",
+                        "type": "Double"
+                    },
+                    "latitude": {
+                        "description": "Optional. The latitude, in decimal, for the item. Read-only.",
+                        "type": "Double"
+                    },
+                    "longitude": {
+                        "description": "Optional. The longitude, in decimal, for the item. Read-only.",
+                        "type": "Double"
+                    }
+                }
+            },
+            "group": {
+                "type": "object",
+                "properties": {
+                    "Create group": {
+                        "description": "Create a new group. It can be an Office 365 group, dynamic group or security group.",
+                        "type": "group"
+                    },
+                    "Get group": {
+                        "description": "Read properties of a group object.",
+                        "type": "group"
+                    },
+                    "List groups": {
+                        "description": "List group objects and their properties.",
+                        "type": "group collection"
+                    },
+                    "Update group": {
+                        "description": "Update the properties of a group object.",
+                        "type": "group"
+                    },
+                    "Delete group": {
+                        "description": "Delete group object.",
+                        "type": "None"
+                    },
+                    "Add member": {
+                        "description": "Add a user or group to this group by posting to the members navigation property (supported for security groups and mail-enabled security groups only).",
+                        "type": "None"
+                    },
+                    "List members": {
+                        "description": "Get the users that are members of the directory role from the members navigation property.",
+                        "type": "directoryObject collection"
+                    },
+                    "Remove member": {
+                        "description": "Remove a member from an Office 365 group, a security group or a mail-enabled security group through the members navigation property. You can remove users or other groups.",
+                        "type": "None"
+                    },
+                    "List memberOf": {
+                        "description": "Get the groups that this group is a direct member of, from the memberOf navigation property.",
+                        "type": "directoryObject collection"
+                    },
+                    "Add owner": {
+                        "description": "Add a new owner for the group by posting to the owners navigation property (supported for security groups and mail-enabled security groups only).",
+                        "type": "[None"
+                    },
+                    "List owners": {
+                        "description": "Get the owners of the group from the owners navigation property.",
+                        "type": "directoryObject collection"
+                    },
+                    "Remove owner": {
+                        "description": "Remove an owner from an Office 365 group, a security group or a mail-enabled security group through the owners navigation property.",
+                        "type": "None"
+                    },
+                    "checkMemberGroups": {
+                        "description": "Check for membership in a list of groups. The check is transitive.",
+                        "type": "String collection"
+                    },
+                    "getMemberGroups": {
+                        "description": "Return all the groups that the user, group, or directory object is a member of. The check is transitive.",
+                        "type": "String collection"
+                    },
+                    "getMemberObjects": {
+                        "description": "Return all of the groups and directory roles that the user, group, or directory object is a member of. The check is transitive.",
+                        "type": "String collection"
+                    },
+                    "Create Event": {
+                        "description": "Create a new Event in the default or specified calendar.",
+                        "type": "Event"
+                    },
+                    "List events": {
+                        "description": "Retrieve a list of events in a calendar.  The list contains single instance meetings and series masters.",
+                        "type": "Event collection"
+                    },
+                    "List calendarView": {
+                        "description": "Get the occurrences, exceptions, and single instances of events in a calendar view defined by a time range, from the user's primary calendar (..\/me\/calendarview) or from a specified calendar.",
+                        "type": "Event collection"
+                    },
+                    "Create conversation": {
+                        "description": "Create a new Conversation by posting to the conversations collection.",
+                        "type": "Conversation"
+                    },
+                    "List conversations": {
+                        "description": "Get the list of conversations in this group.",
+                        "type": "conversation collection"
+                    },
+                    "List threads": {
+                        "description": "Get all the threads of a group.",
+                        "type": "conversationThread collection"
+                    },
+                    "List acceptedSenders": {
+                        "description": "Get a list of users or groups that are in the acceptedSenders list for this group.",
+                        "type": "directoryObject collection"
+                    },
+                    "Add acceptedSender": {
+                        "description": "Add a User or Group to the acceptSenders collection.",
+                        "type": "directoryObject"
+                    },
+                    "Remove acceptedSender": {
+                        "description": "Remove a User or Group from the acceptedSenders collection.",
+                        "type": "directoryObject"
+                    },
+                    "Add rejectedSender": {
+                        "description": "Add a new User or Group to the rejectedSenders collection.",
+                        "type": "directoryObject"
+                    },
+                    "List rejectedSenders": {
+                        "description": "Get a list of users or groups that are in the rejectedSenders list for this group.",
+                        "type": "directoryObject collection"
+                    },
+                    "Remove rejectedSender": {
+                        "description": "Remove new new User or Group from the rejectedSenders collection.",
+                        "type": "directoryObject"
+                    },
+                    "addFavorite": {
+                        "description": "Add the group to the list of the current user's favorite groups. Supported for only Office 365 groups.",
+                        "type": "None"
+                    },
+                    "removeFavorite": {
+                        "description": "Remove the group from the list of the current user's favorite groups. Supported for only Office 365 groups.",
+                        "type": "None"
+                    },
+                    "subscribeByMail": {
+                        "description": "Set the isSubscribedByMail property to true. Enabling the current user to receive email conversations. Supported for only Office 365 groups.",
+                        "type": "None"
+                    },
+                    "unsubscribeByMail": {
+                        "description": "Set the isSubscribedByMail property to false. Disabling the current user from receive email conversations. Supported for only Office 365 groups.",
+                        "type": "None"
+                    },
+                    "resetUnseenCount": {
+                        "description": "Reset the unseenCount to 0 of all the posts that the current user has not seen since their last visit. Supported for only Office 365 groups.",
+                        "type": "None"
+                    }
+                }
+            },
+            "Hashes": {
+                "type": "object",
+                "properties": {
+                    "sha1Hash": {
+                        "description": "SHA1 hash for the contents of the file (if available). Read-only.",
+                        "type": "String"
+                    },
+                    "crc32Hash": {
+                        "description": "The CRC32 value of the file (if available). Read-only.",
+                        "type": "String"
+                    },
+                    "quickXorHash": {
+                        "description": "A proprietary hash of the file that can be used to determine if the contents of the file have changed (if available). Read-only.",
+                        "type": "String"
+                    }
+                }
+            },
+            "Icon": {
+                "type": "object",
+                "properties": {
+                    "Get Icon": {
+                        "description": "Read properties and relationships of icon object.",
+                        "type": "Icon"
+                    },
+                    "Update": {
+                        "description": "Update Icon object.",
+                        "type": "Icon"
+                    }
+                }
+            },
+            "Identity": {
+                "type": "object",
+                "properties": {
+                    "displayName": {
+                        "description": "The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using find changes",
+                        "type": "String"
+                    },
+                    "id": {
+                        "description": "The unique identifier of the drive. Read-only.",
+                        "type": "String"
+                    }
+                }
+            },
+            "IdentitySet": {
+                "type": "object",
+                "properties": {
+                    "application": {
+                        "description": "Optional. The application associated with this action.",
+                        "type": "Identity"
+                    },
+                    "device": {
+                        "description": "Optional. The device associated with this action.",
+                        "type": "Identity"
+                    },
+                    "user": {
+                        "description": "Optional. The user associated with this action.",
+                        "type": "Identity"
+                    }
+                }
+            },
+            "Image": {
+                "type": "object",
+                "properties": {
+                    "height": {
+                        "description": "Optional. Height of the image, in pixels. Read-only.",
+                        "type": "Int32"
+                    },
+                    "width": {
+                        "description": "Optional. Width of the image, in pixels. Read-only.",
+                        "type": "Int32"
+                    }
+                }
+            },
+            "inferenceClassification": {
+                "type": "object",
+                "properties": {
+                    "Create inferenceClassificationOverride": {
+                        "description": "Create an override for a sender identified by an SMTP address. Future messages from that SMTP address will be consistently classified as specified in the override.",
+                        "type": "inferenceClassificationOverride"
+                    },
+                    "List overrides": {
+                        "description": "Get the overrides that a user has set up to always classify messages from certain senders in specific ways.",
+                        "type": "inferenceClassificationOverride collection"
+                    }
+                }
+            },
+            "inferenceClassificationOverride": {
+                "type": "object",
+                "properties": {
+                    "Update": {
+                        "description": "Change the ClassifyAs field of an override as specified.",
+                        "type": "inferenceClassificationOverride"
+                    },
+                    "Delete": {
+                        "description": "Delete an attachment on an event, message, or post.",
+                        "type": "None"
+                    }
+                }
+            },
+            "invitation manager": {
+                "type": "object",
+                "properties": {
+                    "Create invitation": {
+                        "description": "Write properties and relationships of invitation object.",
+                        "type": "invitation"
+                    }
+                }
+            },
+            "Configuring the invitation message": {
+                "type": "object",
+                "properties": {
+                    "ccRecipients": {
+                        "description": "Additional recipients the invitation message should be sent to. Currently only 1 additional recipient is supported.",
+                        "type": "Recipient"
+                    },
+                    "customizedMessageBody": {
+                        "description": "Customized message body you want to send if you don't want the default message.",
+                        "type": "String"
+                    },
+                    "messageLanguage": {
+                        "description": "The language you want to send the default message in. If the customizedMessageBody is specified, this property is ignored, and the message is sent using the customizedMessageBody. The language format should be in ISO 639. The default is en-US.",
+                        "type": "String"
+                    }
+                }
+            },
+            "itemAttachment": {
+                "type": "object",
+                "properties": {
+                    "Get": {
+                        "description": "Read properties and relationships of itemAttachment object.",
+                        "type": "itemAttachment"
+                    },
+                    "Delete": {
+                        "description": "Delete an attachment on an event, message, or post.",
+                        "type": "None"
+                    }
+                }
+            },
+            "itemBody": {
+                "type": "object",
+                "properties": {
+                    "content": {
+                        "description": "The content of the item.",
+                        "type": "String"
+                    },
+                    "contentType": {
+                        "description": "The type of the content. Possible values are Text and HTML.",
+                        "type": "String"
+                    }
+                }
+            },
+            "ItemReference": {
+                "type": "object",
+                "properties": {
+                    "driveId": {
+                        "description": "Unique identifier of the OneDrive instance that contains the item. Read-only.",
+                        "type": "String"
+                    },
+                    "id": {
+                        "description": "The unique identifier of the drive. Read-only.",
+                        "type": "String"
+                    },
+                    "path": {
+                        "description": "Path that can be used to navigate to the item. Read-only.",
+                        "type": "String"
+                    }
+                }
+            },
+            "licenseUnitsDetail": {
+                "type": "object",
+                "properties": {
+                    "enabled": {
+                        "description": "",
+                        "type": "Int32"
+                    },
+                    "suspended": {
+                        "description": "",
+                        "type": "Int32"
+                    },
+                    "warning": {
+                        "description": "",
+                        "type": "Int32"
+                    }
+                }
+            },
+            "localeInfo": {
+                "type": "object",
+                "properties": {
+                    "locale": {
+                        "description": "A locale representation for the user, which includes the user's preferred language and country\/region. For example, \"en-us\". The language component follows 2-letter codes as defined in ISO 639-1, and the country component follows 2-letter codes as defined in ISO 3166-1 alpha-2.",
+                        "type": "string"
+                    },
+                    "displayName": {
+                        "description": "The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using find changes",
+                        "type": "String"
+                    }
+                }
+            },
+            "Location": {
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "description": "The street address of the location.",
+                        "type": "physicalAddress"
+                    },
+                    "displayName": {
+                        "description": "The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using find changes",
+                        "type": "String"
+                    },
+                    "locationEmailAddress": {
+                        "description": "Optional email address of the location.",
+                        "type": "String"
+                    }
+                }
+            },
+            "locationConstraint": {
+                "type": "object",
+                "properties": {
+                    "isRequired": {
+                        "description": "The client requests the service to include in the response a meeting location for the meeting. If this is true and all the resources are busy, findMeetingTimes will not return any meeting time suggestions. If this is false and all the resources are busy, findMeetingTimes would still look for meeting times without locations.",
+                        "type": "Boolean"
+                    },
+                    "locations": {
+                        "description": "Constraint information for one or more locations that the client requests for the meeting.",
+                        "type": "locationConstraintItem collection"
+                    },
+                    "suggestLocation": {
+                        "description": "The client requests the service to suggest one or more meeting locations.",
+                        "type": "Boolean"
+                    }
+                }
+            },
+            "locationConstraintItem": {
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "description": "The street address of the location.",
+                        "type": "physicalAddress"
+                    },
+                    "displayName": {
+                        "description": "The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using find changes",
+                        "type": "String"
+                    },
+                    "locationEmailAddress": {
+                        "description": "Optional email address of the location.",
+                        "type": "String"
+                    },
+                    "resolveAvailability": {
+                        "description": "If set to true and the specified resource is busy, findMeetingTimes looks for another resource that is free. If set to false and the specified resource is busy, findMeetingTimes returns the resource best ranked in the user's cache without checking if it's free. Default is true.",
+                        "type": "Boolean"
+                    }
+                }
+            },
+            "mailboxSettings": {
+                "type": "object",
+                "properties": {
+                    "automaticRepliesSetting": {
+                        "description": "Configuration settings to automatically notify the sender of an incoming email with a message from the signed-in user.",
+                        "type": "automaticRepliesSetting"
+                    },
+                    "language": {
+                        "description": "The locale information for the user, including the preferred language and country\/region.",
+                        "type": "localeInfo"
+                    },
+                    "TimeZone": {
+                        "description": "One of the following time zone names.",
+                        "type": "String"
+                    }
+                }
+            },
+            "mailFolder": {
+                "type": "object",
+                "properties": {
+                    "Get mailFolder": {
+                        "description": "Read properties and relationships of mailFolder object.",
+                        "type": "mailFolder"
+                    },
+                    "Create MailFolder": {
+                        "description": "Create a new mailFolder under the current one by posting to the childFolders collection.",
+                        "type": "MailFolder"
+                    },
+                    "List childFolders": {
+                        "description": "Get the folder collection under the specified folder. You can use the ...\/me\/MailFolders shortcut to get the top-level folder collection and navigate to another folder.",
+                        "type": "MailFolder collection"
+                    },
+                    "Create Message": {
+                        "description": "Create a new message in the current mailFolder by posting to the messages collection.",
+                        "type": "Message"
+                    },
+                    "List messages": {
+                        "description": "Get all the messages in the signed-in user's mailbox, or those messages in a specified folder in the mailbox.",
+                        "type": "Message collection"
+                    },
+                    "Update": {
+                        "description": "Update the specified mailFolder object.",
+                        "type": "mailFolder"
+                    },
+                    "Delete": {
+                        "description": "Delete an attachment on an event, message, or post.",
+                        "type": "None"
+                    },
+                    "copy": {
+                        "description": "Copy a mailFolder and its contents to another mailFolder.",
+                        "type": "MailFolder"
+                    },
+                    "move": {
+                        "description": "Move a mailFolder and its contents to another mailFolder.",
+                        "type": "MailFolder"
+                    },
+                    "Create single": {
+                        "description": "Create one or more single-value extended properties in a new or existing mailFolder.",
+                        "type": "mailFolder"
+                    },
+                    "Get mailFolder with single": {
+                        "description": "Get mailFolders that contain a single-value extended property by using $expand or $filter.",
+                        "type": "mailFolder"
+                    },
+                    "Create multi": {
+                        "description": "Create one or more multi-value extended properties in a new or existing mailFolder.",
+                        "type": "mailFolder"
+                    },
+                    "Get mailFolder with multi": {
+                        "description": "Get a mailFolder that contains a multi-value extended property by using $expand.",
+                        "type": "mailFolder"
+                    }
+                }
+            },
+            "Manage Focused Inbox": {
+                "type": "object"
+            },
+            "meetingTimeSuggestion": {
+                "type": "object",
+                "properties": {
+                    "attendeeAvailability": {
+                        "description": "An array that shows the availability status of each attendee for this meeting suggestion.",
+                        "type": "attendeeAvailability collection"
+                    },
+                    "confidence": {
+                        "description": "A percentage that represents the likelhood of all the attendees attending.",
+                        "type": "Double"
+                    },
+                    "locations": {
+                        "description": "An array that specifies the name and geographic location of each meeting location for this meeting suggestion.",
+                        "type": "location collection"
+                    },
+                    "meetingTimeSlot": {
+                        "description": "A time period suggested for the meeting.",
+                        "type": "timeSlot"
+                    },
+                    "organizerAvailability": {
+                        "description": "Availability of the meeting organizer for this meeting suggestion. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown.",
+                        "type": "String"
+                    },
+                    "suggestionReason": {
+                        "description": "Reason for suggesting the meeting time.",
+                        "type": "String"
+                    }
+                }
+            },
+            "meetingTimeSuggestionsResult": {
+                "type": "object"
+            }
+        }
+    }
+}
