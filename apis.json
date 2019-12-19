@@ -1,0 +1,77 @@
+{
+    "name": "Microsoft Graph",
+    "description": "<p>Microsoft Graph exposes multiple APIs from Office 365 and other Microsoft cloud services through a single endpoint. Microsoft Graph simplifies queries that would otherwise be more complex. You can use Microsoft Graph to: Access data from multiple Microsoft cloud services, including Azure Active Directory, Exchange Online as part of Office 365, SharePoint, OneDrive, OneNote, and Planner.<\/p>",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/logos\/microsoft-graph.png",
+    "tags": [
+        "api provider",
+        "contacts",
+        "emails",
+        "files",
+        "have api",
+        "microsoft",
+        "notes",
+        "relative data",
+        "service api",
+        "tasks",
+        "webhook implementations"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/microsoft-graph\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "Microsoft Graph API",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/logos\/microsoft-graph.png",
+            "humanURL": "microsoftgraph.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/microsoft-graph-api-openapi.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Webhooks",
+            "url": "https:\/\/developer.microsoft.com\/en-us\/graph\/docs\/api-reference\/v1.0\/resources\/webhooks"
+        },
+        {
+            "type": "Website",
+            "url": "microsoftgraph.com"
+        },
+        {
+            "type": "Change Logs",
+            "url": "https:\/\/developer.microsoft.com\/en-us\/graph\/docs\/overview\/changelog"
+        },
+        {
+            "type": "Documentation",
+            "url": "https:\/\/developer.microsoft.com\/en-us\/graph\/docs"
+        },
+        {
+            "type": "Explorer",
+            "url": "https:\/\/developer.microsoft.com\/en-us\/graph\/graph-explorer"
+        },
+        {
+            "type": "Getting Started",
+            "url": "https:\/\/developer.microsoft.com\/en-us\/graph\/docs\/get-started\/rest"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/microsoftgraph"
+        },
+        {
+            "type": "SDK",
+            "url": "https:\/\/developer.microsoft.com\/en-us\/graph\/code-samples-and-sdks"
+        },
+        {
+            "type": "Website",
+            "url": "https:\/\/developer.microsoft.com\/en-us\/graph\/"
+        }
+    ]
+}
